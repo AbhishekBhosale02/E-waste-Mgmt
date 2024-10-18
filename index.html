@@ -7,72 +7,186 @@
     <title>E-Waste Recycling Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Overall body style */
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-        h1 {
-            margin-top: 50px;
-        }
-        input, select {
-            padding: 10px;
-            margin: 10px;
-            width: 300px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #1abc9c;
+            background: url('https://as1.ftcdn.net/v2/jpg/05/00/96/84/1000_F_500968458_OGyQ9bVX0iG18R74csP1JBAvtxxaGYgs.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+            backdrop-filter: blur(10px);
         }
-        button:hover {
-            background-color: #16a085;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #fff;
-            max-width: 400px;
+
+        /* Container for the main content */
+        .container {
+            margin-top: 50px;
+            background-color: #639f5c;
+            padding: 40px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* Card hover effect */
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Heading style */
+        h1 {
+            color: #050505;
+            font-weight: 600;
+        }
+
+        /* Input and select container styling */
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Input and select styling */
+        input, select {
+            padding: 12px;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Focus state for inputs */
+        input:focus, select:focus {
+            border-color: #1abc9c;
+            outline: none;
+            box-shadow: 0 0 8px rgba(26, 188, 156, 0.2), 0 6px 16px rgba(26, 188, 156, 0.2);
+        }
+
+        /* Button style with colorful gradient */
+        button {
+            padding: 14px 28px;
+            font-size: 16px;
+            background: linear-gradient(45deg, #ff6b6b, #fbc531);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 16px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Hover effect for button */
+        button:hover {
+            background: linear-gradient(45deg, #f0932b, #e84118);
+            box-shadow: 0 12px 24px rgba(240, 147, 43, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Result box styling */
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             display: none; /* Initially hidden */
+        }
+
+        /* Info headings */
+        h3 {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* P tag styling */
+        p {
+            color: #555;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        /* Button for more details */
+        #result button {
+            background-color: #3498db;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.2);
+        }
+
+        /* More details button hover */
+        #result button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(41, 128, 185, 0.3);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            input, select {
+                width: 90%;
+            }
+
+            #result {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>E-Waste Management Guide</h1>
+    <div class="container">
+        <h1>E-Waste Management Guide</h1>
 
-    <label for="city">Select Your City:</label>
-    <select id="city">
-        <option value="Pune">Pune</option>
-        <option value="Mumbai">Mumbai</option>
-        <option value="Chennai">Chennai</option>
-        <option value="Kolkata">Kolkata</option>
-    </select>
+        <!-- Input container for stacking dropdowns -->
+        <div class="input-container">
+            <label for="city">Select Your City:</label>
+            <select id="city">
+                <option value="Pune">Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Kolkata">Kolkata</option>
+            </select>
 
-    <label for="ewaste">Select E-Waste Type:</label>
-    <select id="ewaste">
-        <option value="Smartphone">Smartphone</option>
-        <option value="Laptop">Laptop</option>
-        <option value="TVs">TVs</option>
-        <option value="AC">AC</option>
-    </select>
+            <label for="ewaste">Select E-Waste Type:</label>
+            <select id="ewaste">
+                <option value="Smartphone">Smartphone</option>
+                <option value="Laptop">Laptop</option>
+                <option value="TVs">TVs</option>
+                <option value="AC">AC</option>
+            </select>
+        </div>
 
-    <button onclick="getManagementInfo()">Get Management Info</button>
+        <button onclick="getManagementInfo()">Get Management Info</button>
 
-    <div id="result"></div>
+        <div id="result"></div>
+    </div>
 
     <script>
         const eWasteData = {
