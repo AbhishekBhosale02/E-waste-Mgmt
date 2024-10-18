@@ -100,30 +100,6 @@
     
     <button class="get-started" onclick="playSound(); window.location.href='index.html'">Get Started</button>
 
-    <div class="svg-container">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="white">
-            <circle cx="50" cy="50" r="45" stroke-width="5" class="animate-circle"/>
-            <path d="M50 15 L50 25 L65 25 L50 15 Z" fill="white" class="animate-path"/>
-            <style>
-                @keyframes circleAnim {
-                    0% { stroke-dasharray: 0, 282; }
-                    100% { stroke-dasharray: 282, 0; }
-                }
-                @keyframes pathAnim {
-                    0% { transform: scale(0); }
-                    100% { transform: scale(1); }
-                }
-                .animate-circle {
-                    stroke-dasharray: 282;
-                    stroke-dashoffset: 0;
-                    animation: circleAnim 2s forwards;
-                }
-                .animate-path {
-                    animation: pathAnim 1s forwards 0.5s;
-                }
-            </style>
-        </svg>
-    </div>
 
     <script>
         function playSound() {
